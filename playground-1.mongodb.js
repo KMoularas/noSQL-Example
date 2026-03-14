@@ -12,4 +12,11 @@ db.getCollection("clickstream").aggregate({
     }
 });
 
-// Average time spent per country
+//only user 
+db.getCollection("clickstream").find(
+    {},
+    {"user_id":1, 
+     page: 0,
+     _id: 0
+    }
+);

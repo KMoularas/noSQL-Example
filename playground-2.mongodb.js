@@ -47,3 +47,13 @@ $group:{
         min_time: {$min: "$time spent"}
     }
 });
+
+//only user 
+db.getCollection("clickstream").find(
+    {},
+    {
+        user_id: 1, 
+        page: 1,
+        _id: 0
+    }
+);
