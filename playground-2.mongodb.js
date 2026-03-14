@@ -44,7 +44,9 @@ $group:{
     _id: (device:"$device",
         _id:"$user_id"
     ),
-        min_time: {$min: "$time spent"}
+        min_time: {
+            $min: "$time spent"
+        }
     }
 });
 
@@ -57,3 +59,11 @@ db.getCollection("clickstream").find(
         _id: 0
     }
 );
+
+//sort by time spent(max-min time spent) -1 :descending
+
+db.getCollection("clickstream").find().sort({
+    time_spent: -1
+})
+
+
